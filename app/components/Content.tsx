@@ -2,6 +2,7 @@
 
 import { CustomInput } from "./CustomInput";
 import { PlayIcon } from "@heroicons/react/16/solid";
+import { ArrowPathIcon } from "@heroicons/react/16/solid";
 import { StopIcon } from "@heroicons/react/16/solid";
 import { useEffect, useRef, useState } from "react";
 import split from "../split";
@@ -142,6 +143,8 @@ export const Content = () => {
     setPlaying(false);
   };
 
+  const handleGenerate = () => {};
+
   return (
     <div className="flex flex-col gap-8 w-full">
       {/* Info that is only shown when the words are playing */}
@@ -165,6 +168,17 @@ export const Content = () => {
           onChange={(t) => setText(t.target.value)}
           className="h-64 min-h-[4em] p-4 rounded-lg outline-none border focus:border-2 focus:border-primary"
         />
+      )}
+
+      {/* The generate paragraph button */}
+      {playing && (
+        <button
+          className="self-start flex flex-row px-4 py-2 h-12 gap-2 cursor-pointer hover:opacity-80 items-center rounded-lg min-h-0 bg-primary text-white"
+          onClick={handleGenerate}
+        >
+          <ArrowPathIcon className="h-6 w-6 " />
+          <div className="text-base">Generate paragraph</div>
+        </button>
       )}
 
       {/* Displaying large text when playing */}
