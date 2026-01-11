@@ -39,8 +39,8 @@ export default function RootLayout({
         <header className="px-16 py-4">
           <Topbar />
         </header>
-        <hr className="h-[0.5] bg-gray-300 border-0" />
-        <div className="grow px-16 py-8 ">{children}</div>
+        <hr className="h-[0.5] shrink-0 bg-gray-300 border-0 w-full" />
+        <div className="grow px-8 sm:px-16 py-4 sm:py-8 ">{children}</div>
         <footer className="py-8 px-8 w-full flex justify-center">
           {<Footer />}
         </footer>

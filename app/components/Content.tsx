@@ -160,7 +160,7 @@ export const Content = () => {
       {!playing && (
         <textarea
           id="main-textfield"
-          placeholder="Enter or paste your paragraph here"
+          placeholder="Type or paste your paragraph here..."
           value={text}
           onChange={(t) => setText(t.target.value)}
           className="h-64 min-h-[4em] p-4 rounded-lg outline-none border focus:border-2 focus:border-primary"
@@ -174,11 +174,12 @@ export const Content = () => {
       <div className="flex flex-row items-end justify-start gap-4 ">
         {/* The from, to, duration buttons */}
 
-        <div className="flex flex-row grow items-end justify-start gap-4">
+        <div className="flex flex-col sm:flex-row grow items-start justify-start gap-4">
           {
             <CustomInput
               label="From WPM"
               value={initialWpm}
+              disabled={playing}
               onChange={(n) => setInitialWpm(Number(n.target.value))}
             />
           }
@@ -186,6 +187,7 @@ export const Content = () => {
             <CustomInput
               label="To WPM"
               value={finalWpm}
+              disabled={playing}
               onChange={(n) => setFinalWpm(Number(n.target.value))}
             />
           }
@@ -193,6 +195,7 @@ export const Content = () => {
             <CustomInput
               label="Duration"
               value={duration}
+              disabled={playing}
               onChange={(n) => setDuration(Number(n.target.value))}
             />
           }

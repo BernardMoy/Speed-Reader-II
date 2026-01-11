@@ -6,7 +6,7 @@ export const Topbar = () => {
   const pathname: string = usePathname();
 
   return (
-    <div className="flex flex-row gap-8 items-center">
+    <div className="flex x flex-col sm:flex-row gap-8 items-center">
       {/* The title */}
       <h1 className="text-5xl font-mono grow">Speed Reader</h1>
       {/* The navigation bar */}
@@ -15,7 +15,7 @@ export const Topbar = () => {
           href="/"
           className={`${
             pathname === "/" ? "" : ""
-          } hover:underline hover:text-primary active:opacity-80 text-2xl`}
+          } hover:underline hover:text-primary active:opacity-80 text-xl`}
         >
           Reader
         </Link>
@@ -23,7 +23,7 @@ export const Topbar = () => {
           href="/about"
           className={`${
             pathname === "/" ? "" : ""
-          } hover:underline hover:text-primary active:opacity-80 text-2xl`}
+          } hover:underline hover:text-primary active:opacity-80 text-xl`}
         >
           About
         </Link>
