@@ -26,9 +26,9 @@ export const Content = () => {
       <p className="text-center text-7xl">Show</p>
 
       {/* Buttons */}
-      <div className="flex flex-row items-end justify-start gap-4">
+      <div className="flex flex-row items-end justify-start gap-4 ">
         {/* The from, to, duration buttons */}
-        <div className="flex flex-row grow justify-start gap-4">
+        <div className="flex flex-row grow items-end justify-start gap-4">
           {<CustomInput label="From WPM" value={200} onChange={() => {}} />}
           {<CustomInput label="To WPM" value={500} onChange={() => {}} />}
           {<CustomInput label="Duration" value={10} onChange={() => {}} />}
