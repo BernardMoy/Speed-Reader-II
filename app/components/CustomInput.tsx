@@ -5,7 +5,7 @@ export const CustomInput = ({
 }: {
   label: string;
   value: number;
-  onChange: () => void;
+  onChange: (n: any) => void;
 }) => {
   const id: string = label.replaceAll(" ", "-").toLowerCase();
 
