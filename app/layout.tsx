@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "./components/navigation";
+import { Footer } from "./components/Footer";
+import { Topbar } from "./components/Topbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,13 +35,15 @@ export default function RootLayout({
       lang="en"
       className={`${openSans.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body>
-        <header>
-          <Navigation />
+      <body className="gap-4 flex flex-col h-screen">
+        <header className="px-16 py-4">
+          <Topbar />
         </header>
-        <hr className="grayscale-50" />
-        {children}
-        <footer>Made with 🩵 by </footer>
+        <hr className="h-[0.5] bg-gray-300 border-0" />
+        <div className="grow px-16 py-8 ">{children}</div>
+        <footer className="py-8 px-8 w-full flex justify-center">
+          {<Footer />}
+        </footer>
       </body>
     </html>
   );

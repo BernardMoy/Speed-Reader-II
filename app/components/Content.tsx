@@ -19,11 +19,11 @@ export const Content = () => {
         placeholder="Enter or paste your paragraph here"
         value={"Test"}
         onChange={() => {}}
-        className="min-h-64 p-4 rounded-lg outline-none border focus:border-2 focus:border-primary"
+        className="h-64 min-h-[4em] p-4 rounded-lg outline-none border focus:border-2 focus:border-primary"
       />
 
       {/* Displaying large text when playing */}
-      <p className="text-center text-7xl">Show</p>
+      <p className="text-center text-8xl">Show</p>
 
       {/* Buttons */}
       <div className="flex flex-row items-end justify-start gap-4 ">
