@@ -38,6 +38,7 @@ export const Content = () => {
       setCurrentWordNumber(0);
       setTotalWordNumber(0);
       setCurrentWord(null);
+      setCurrentWpm(0);
     }
 
     // if not playing, return
@@ -66,6 +67,8 @@ export const Content = () => {
     setTotalWordNumber(wordList.length);
 
     // recursive play function that plays faster gradually
+    let timeout: NodeJS.Timeout | null = null;
+    let interval: number = 60000 / initialWpm;
     function play() {
       // display the current word
       setCurrentWord(wordList[wordNumberRef.current]);
@@ -76,7 +79,7 @@ export const Content = () => {
 
       // calculate the next increased wpm
       // solve for x in (final-initial)/duration = (x-initial)/time
-      const interval: number = 60000 / wpmRef.current; // in ms - depend on the current wpm
+      interval = 60000 / wpmRef.current; // in ms - depend on the current wpm
       timeElapsed.current += interval;
 
       // cap the wpm to the final wpm
@@ -98,29 +101,60 @@ export const Content = () => {
         setPlaying(false);
       } else if (wordNumberRef.current == wordList.length) {
         // give a 1 second delay before exiting
-        setTimeout(play, interval + 1000);
+        timeout = setTimeout(play, interval + 1000);
       } else {
         // immediately display the next word
-        setTimeout(play, interval);
+        timeout = setTimeout(play, interval);
       }
     }
 
     // call the play function
     play();
-    return () => exit();
+    return () => {
+      exit();
+      // clear timeout
+      if (timeout !== null) {
+        clearTimeout(timeout);
+      }
+    };
   }, [playing]);
+
+  // the handle start and handle stop functions
+  const handleStart = () => {
+    // first check if final wpm is >= initial wpm
+    if (initialWpm > finalWpm) {
+      alert("The final WPM must not be less than the initial WPM.");
+      return;
+    }
+
+    // then check if text is empty
+    if (split(text).length === 0) {
+      alert("The text is empty");
+      return;
+    }
+
+    // set playing to true
+    setPlaying(true);
+  };
+
+  const handleStop = () => {
+    // stop playing, include resetting the fields
+    setPlaying(false);
+  };
 
   return (
     <div className="flex flex-col gap-8 w-full">
       {/* Info that is only shown when the words are playing */}
-      <div className="flex flex-row gap-4 w-full">
-        <p className="font-bold grow">
-          Word: {currentWordNumber} / {totalWordNumber}
-        </p>
-        <p className="font-bold">
-          Current wpm: {Math.round(currentWpm * 10) / 10}
-        </p>
-      </div>
+      {playing && (
+        <div className="flex flex-row gap-4 w-full">
+          <p className="font-bold grow">
+            Word: {currentWordNumber} / {totalWordNumber}
+          </p>
+          <p className="font-bold">
+            Current wpm: {Math.round(currentWpm * 10) / 10}
+          </p>
+        </div>
+      )}
 
       {/* The main textfield */}
       {!playing && (
@@ -134,7 +168,7 @@ export const Content = () => {
       )}
 
       {/* Displaying large text when playing */}
-      {playing && <p className="text-center text-8xl">{currentWord}</p>}
+      {playing && <p className="text-center py-16 text-8xl">{currentWord}</p>}
 
       {/* Buttons */}
       <div className="flex flex-row items-end justify-start gap-4 ">
@@ -168,15 +202,7 @@ export const Content = () => {
         {!playing && (
           <button
             className="flex flex-row px-8 py-4 cursor-pointer hover:opacity-80 gap-2 items-center h-16 rounded-lg min-h-0 bg-primary text-white"
-            onClick={() => {
-              // first check if final wpm is >= initial wpm
-              if (initialWpm > finalWpm) {
-                alert("The final WPM must not be less than the initial WPM.");
-                return;
-              }
-              // set playing to true
-              setPlaying(true);
-            }}
+            onClick={handleStart}
           >
             <PlayIcon className="h-6 w-6 " />
             <div className="text-xl">Start</div>
@@ -187,9 +213,7 @@ export const Content = () => {
         {playing && (
           <button
             className="flex flex-row px-8 py-4 cursor-pointer hover:opacity-80 gap-2 items-center h-16 rounded-lg min-h-0 bg-secondary text-white"
-            onClick={() => {
-              setPlaying(false);
-            }}
+            onClick={handleStop}
           >
             <StopIcon className="h-6 w-6 " />
             <div className="text-xl">Stop</div>
