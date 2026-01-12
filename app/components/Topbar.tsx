@@ -8,7 +8,13 @@ export const Topbar = () => {
   return (
     <div className="flex x flex-col sm:flex-row gap-8 items-center">
       {/* The title */}
-      <h1 className="text-5xl font-mono grow">Speed Reader</h1>
+      <div className="flex grow">
+        {" "}
+        <Link href="/">
+          <h1 className="text-5xl font-mono">Speed Reader</h1>
+        </Link>
+      </div>
+
       {/* The navigation bar */}
       <nav className="flex flex-row gap-8">
         <Link

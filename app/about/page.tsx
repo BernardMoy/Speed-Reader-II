@@ -20,10 +20,24 @@ export default function About() {
           average reading speed (200-300wpm) if presented this way.
         </p>
 
+        <p>
+          <span className="font-bold">From WPM</span> indicates the initial WPM
+          that the words are presented;
+        </p>
+        <p>
+          <span className="font-bold">To WPM</span> indicates the highest WPM
+          that the words can be presented in. It must not be less than the from
+          WPM and is limited by factors such as browser refresh rates.
+        </p>
+        <p>
+          <span className="font-bold">Duration</span> indicates the time needed
+          for the WPM to increase from the initial value to the final value.
+        </p>
+
         <a
           href="https://github.com/BernardMoy"
           target="_blank"
-          className="flex flex-row gap-2 items-center text-gray-700 hover:text-gray-500 hover:underline"
+          className="py-4 flex flex-row gap-2 items-center active:text-gray-400 text-gray-700 hover:text-gray-500 hover:underline"
         >
           <AiFillGithub />
           <p className="">Link to my Github</p>
