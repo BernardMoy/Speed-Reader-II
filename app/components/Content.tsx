@@ -171,6 +171,7 @@ export const Content = () => {
       )}
 
       {/* The generate paragraph button */}
+      {/* self-start to override align-content stretch */}
       {playing && (
         <button
           className="self-start flex flex-row px-4 py-2 h-12 gap-2 cursor-pointer hover:opacity-80 items-center rounded-lg min-h-0 bg-primary text-white"
