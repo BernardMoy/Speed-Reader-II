@@ -1,9 +1,9 @@
 "use client";
 
 import { CustomInput } from "./CustomInput";
-import { PlayIcon } from "@heroicons/react/16/solid";
-import { ArrowPathIcon } from "@heroicons/react/16/solid";
-import { StopIcon } from "@heroicons/react/16/solid";
+import { FaPlay } from "react-icons/fa";
+import { FaStop } from "react-icons/fa";
+import { FiRefreshCcw } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
 import split from "../split";
 
@@ -172,13 +172,13 @@ export const Content = () => {
 
       {/* The generate paragraph button */}
       {/* self-start to override align-content stretch */}
-      {playing && (
+      {!playing && (
         <button
           className="self-start flex flex-row px-4 py-2 h-12 gap-2 cursor-pointer hover:opacity-80 items-center rounded-lg min-h-0 bg-primary text-white"
           onClick={handleGenerate}
         >
-          <ArrowPathIcon className="h-6 w-6 " />
-          <div className="text-base">Generate paragraph</div>
+          <FiRefreshCcw className="h-6 w-6 " />
+          <div className="text-base">Generate words</div>
         </button>
       )}
 
@@ -222,7 +222,7 @@ export const Content = () => {
             className="flex flex-row px-8 py-4 cursor-pointer hover:opacity-80 gap-2 items-center h-16 rounded-lg min-h-0 bg-primary text-white"
             onClick={handleStart}
           >
-            <PlayIcon className="h-6 w-6 " />
+            <FaPlay className="h-6 w-6 " />
             <div className="text-xl">Start</div>
           </button>
         )}
@@ -233,7 +233,7 @@ export const Content = () => {
             className="flex flex-row px-8 py-4 cursor-pointer hover:opacity-80 gap-2 items-center h-16 rounded-lg min-h-0 bg-secondary text-white"
             onClick={handleStop}
           >
-            <StopIcon className="h-6 w-6 " />
+            <FaStop className="h-6 w-6 " />
             <div className="text-xl">Stop</div>
           </button>
         )}
