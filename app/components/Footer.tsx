@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <>
-      <div className="text-gray-500">Made with 🩵</div>
+      <div className="text-gray-500">Made with 🩵 (just for fun)</div>
     </>
   );
 };

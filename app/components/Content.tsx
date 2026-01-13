@@ -6,6 +6,7 @@ import { FaStop } from "react-icons/fa";
 import { FiRefreshCcw } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
 import split from "../split";
+import { generate } from "./Generate";
 
 export const Content = () => {
   // store the text input
@@ -128,6 +129,18 @@ export const Content = () => {
       return;
     }
 
+    // check if wpm is 0
+    if (initialWpm <= 0) {
+      alert("WPM must be greater than 0");
+      return;
+    }
+
+    // check if duration is 0
+    if (duration <= 0) {
+      alert("Duration must be greater than 0");
+      return;
+    }
+
     // then check if text is empty
     if (split(text).length === 0) {
       alert("The text is empty");
@@ -143,7 +156,12 @@ export const Content = () => {
     setPlaying(false);
   };
 
-  const handleGenerate = () => {};
+  const handleGenerate = async () => {
+    const paragraph = await generate(42);
+    // console.log("Here");
+
+    setText(paragraph);
+  };
 
   return (
     <div className="flex flex-col gap-8 w-full">
@@ -183,10 +201,12 @@ export const Content = () => {
       )}
 
       {/* Displaying large text when playing */}
-      {playing && <p className="text-center py-16 text-8xl">{currentWord}</p>}
+      {playing && (
+        <p className="text-center py-16 text-6xl sm:text-8xl">{currentWord}</p>
+      )}
 
       {/* Buttons */}
-      <div className="flex flex-row items-end justify-start gap-4 ">
+      <div className="flex flex-row items-end  justify-start gap-4 ">
         {/* The from, to, duration buttons */}
 
         <div className="flex flex-col sm:flex-row grow items-start justify-start gap-4">

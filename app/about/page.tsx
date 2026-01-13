@@ -3,7 +3,7 @@ export default function About() {
   return (
     <>
       <div className="flex flex-col justify-start items-start gap-8">
-        <h1 className="text-4xl">About the App</h1>
+        <h1 className="text-4xl">About the Website</h1>
 
         <p>
           <a
@@ -15,7 +15,7 @@ export default function About() {
           </a>{" "}
           is where a sequence of stimuli is shown to the observer at one same
           location to their visual field. This app applies this idea to display
-          words one by one in the same position, with customisable, gradually
+          words one by one in the same location, with customisable, gradually
           increasing speeds, and investigate if we can read faster than the
           average reading speed (200-300wpm) if presented this way.
         </p>
