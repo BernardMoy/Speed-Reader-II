@@ -202,7 +202,12 @@ export const Content = () => {
 
       {/* Displaying large text when playing */}
       {playing && (
-        <p className="text-center py-16 text-6xl sm:text-8xl">{currentWord}</p>
+        <p
+          id="playing-text"
+          className="text-center py-8 sm:py-16 text-5xl sm:text-8xl break-all"
+        >
+          {currentWord}
+        </p>
       )}
 
       {/* Buttons */}

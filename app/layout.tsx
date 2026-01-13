@@ -35,7 +35,7 @@ export default function RootLayout({
       className={`${openSans.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="gap-2 sm:gap-4 flex flex-col h-screen">
-        <header className="px-16 py-4">
+        <header className="px-8 sm:px-16 py-4">
           <Topbar />
         </header>
         <hr className="h-[0.5] shrink-0 bg-gray-300 border-0 w-full" />
