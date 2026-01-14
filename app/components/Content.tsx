@@ -14,9 +14,9 @@ export const Content = () => {
 
   // store the initial wpm, final wpm and also the duration
   const [initialWpm, setInitialWpm] = useState<number>(200);
-  const [finalWpm, setFinalWpm] = useState<number>(200);
-  const [duration, setDuration] = useState<number>(10);
-  const [currentWpm, setCurrentWpm] = useState<number>(200);
+  const [finalWpm, setFinalWpm] = useState<number>(400);
+  const [duration, setDuration] = useState<number>(5);
+  const [currentWpm, setCurrentWpm] = useState<number>(0);
 
   // store the current word number to be displayed, or none if there aren't any
   // if current word is none, then it is not in a displaying state
