@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  output: "export",
+  reactStrictMode: true,
+  basePath: "/Speed-Reader-II",
+  assetPrefix: "/Speed-Reader-II/",
 };
 
+module.exports = nextConfig;
 export default nextConfig;

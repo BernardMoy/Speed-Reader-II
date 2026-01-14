@@ -1,4 +1,5 @@
-"use server";
+// "use server";
+// no server actions in github pages
 
 export const generate = async (length: number) => {
   let paragraph: string = "";
