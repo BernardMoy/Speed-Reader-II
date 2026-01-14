@@ -1,38 +1,24 @@
-Work in progress
-----------------------
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Speed Reader
+---------------
+## Objective 
+This app utilises [Rapid serial visual presentation](https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation), where a sequence of words are shown to the observer at the same location over time. Meanwhile, the average person reads 200-300 words per minute (wpm). Can we read faster if words are shown in the same location, with increasing speeds? (This project is just for fun) 
 
-## Getting Started
+## Features 
+Display words in the same location in increasing speeds.
+- From WPM is the initial WPM
+- To WPM is the final WPM, and should be greater than from WPM
+- Duration is the time taken to increase the WPM to final. The display continues in the final WPM if the full duration has been reached. 
 
-First, run the development server:
+## Tech stack 
+Next.JS, React
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Demo 
+<img width="1901" height="698" alt="reader_demo" src="https://github.com/user-attachments/assets/e2ea84ae-e30b-4bea-9d7c-4116d947d60c" />
+
+
+## Running the website 
+Run the website using npm. 
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm i .
+npm run dev
+```
